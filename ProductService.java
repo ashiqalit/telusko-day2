@@ -49,8 +49,9 @@ public class ProductService {
 	}
 	public List<Product> getOutOfWarrantyProducts() {
 		List<Product> prods = new ArrayList<>();
+		int currentYear = java.time.Year.now().getValue();
 		for(Product p : products) {
-			if(p.getWarranty() <= java.time.Year.now().getValue()) {
+			if(p.getWarranty() <= currentYear) {
 				prods.add(p);
 			}
 		}
